@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
+<meta name="theme-color" content="#0E0F16">
+<title>MeloVerse — عالم المانجا والمانهوا</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar" id="topbar">
+  <button class="icon-btn" id="btnMenu" aria-label="القائمة">
+    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  </button>
+  <a class="brand" href="#/home" aria-label="MeloVerse">
+    <span class="brand-mark">M</span>
+    <span class="brand-text">Melo<b>Verse</b></span>
+  </a>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="btnSearchTop" aria-label="بحث">
+      <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="icon-btn" id="btnTheme" aria-label="الوضع الليلي">
+      <svg viewBox="0 0 24 24" width="22" height="22" class="ico-moon"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+      <svg viewBox="0 0 24 24" width="22" height="22" class="ico-sun"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ================= DRAWER ================= -->
+<div class="drawer-scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" aria-label="إغلاق">✕</button>
+  <div class="drawer-profile" id="drawerProfile">
+    <div class="avatar-wrap">
+      <img class="avatar" id="drawerAvatar" alt="" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23241f3a'/><circle cx='32' cy='25' r='11' fill='%236c5ce7'/><path d='M10 60c3-12 11-18 22-18s19 6 22 18z' fill='%236c5ce7'/></svg>">
+      <span class="vbadge hidden" id="drawerBadge" title="موثّق">
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M20.3 6.7 9.8 17.2 4.4 11.8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </div>
+    <div class="dp-text">
+      <div class="dp-name" id="drawerName">زائر</div>
+      <div class="dp-sub" id="drawerRole">اضغط لتسجيل الدخول</div>
+    </div>
+  </div>
+
+  <nav class="drawer-nav">
+    <div class="nav-label">الاستكشاف</div>
+    <a class="nav-item" href="#/home"><i class="nico">🏠</i><span>الرئيسية</span></a>
+    <a class="nav-item" href="#/search"><i class="nico">🔍</i><span>البحث</span></a>
+    <a class="nav-item" href="#/new"><i class="nico">✨</i><span>جديد المانجا</span></a>
+    <a class="nav-item" href="#/recs"><i class="nico">🎯</i><span>التوصيات</span></a>
+    <a class="nav-item" href="#/history"><i class="nico">🕘</i><span>سجل المشاهدة</span></a>
+
+    <div class="nav-label">مكتبتي</div>
+    <a class="nav-item" href="#/library/favorite"><i class="nico">❤️</i><span>المفضلة</span></a>
+    <a class="nav-item" href="#/library/reading"><i class="nico">📖</i><span>أقرأها الآن</span></a>
+    <a class="nav-item" href="#/library/later"><i class="nico">🔖</i><span>للقراءة لاحقاً</span></a>
+    <a class="nav-item" href="#/library/read"><i class="nico">✅</i><span>القوائم المقروءة</span></a>
+    <a class="nav-item" href="#/notifications"><i class="nico">🔔</i><span>الإشعارات</span><b class="pill hidden" id="navUnread">0</b></a>
+    <a class="nav-item" href="#/downloads"><i class="nico">⬇️</i><span>التحميلات</span></a>
+
+    <div class="nav-label">النظام</div>
+    <a class="nav-item" href="#/settings"><i class="nico">⚙️</i><span>الإعدادات</span></a>
+    <a class="nav-item" href="#/privacy"><i class="nico">🛡️</i><span>سياسة الخصوصية</span></a>
+    <a class="nav-item hidden" id="navAdmin" href="#/admin"><i class="nico">🛠️</i><span>غرفة الإدارة</span></a>
+  </nav>
+
+  <div class="drawer-foot">
+    <div class="quota-mini" id="drawerQuota"></div>
+    <div class="drawer-ver">MeloVerse · v1.0.0</div>
+  </div>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main id="view" class="view"><div class="skeleton-page"></div></main>
+
+<!-- ================= BOTTOM NAV ================= -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="#/home" data-nav="home"><span>🏠</span><em>الرئيسية</em></a>
+  <a href="#/search" data-nav="search"><span>🔍</span><em>البحث</em></a>
+  <a href="#/library/favorite" data-nav="lib"><span>❤️</span><em>مكتبتي</em></a>
+  <a href="#/settings" data-nav="me"><span>👤</span><em>حسابي</em></a>
+</nav>
+
+<div id="toast" class="toast"></div>
+<div id="modalRoot" class="modal-root"></div>
+
+<script src="app.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
